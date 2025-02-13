@@ -1,18 +1,23 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  content: [
+    darkMode: ["class"],
+    content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
-    },
+  	extend: {
+  		colors: {
+  			color1: '#FCF9F2', // light
+  			color2: '#F6F1E8', // light 2
+  			color3: '#F6F1E8', // light 3
+  			color4: '#EAE5DA', // border color
+  			color5: '#353534', // text color
+  			color7: '#8D8B88', // text color light
+  		},
+  	}
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config;
