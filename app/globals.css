@@ -2,18 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg-primary: #F8F5F0; /* Main background */
-  --bg-secondary: #F5EEE5; /* Sidebar background */
-  --bg-button: #E8DCCA; /* Button background */
-  --text-primary: #4A4A4A; /* Primary text color */
-  --text-secondary: #25262B; /* Secondary text color */
-  --border-color: #D9D1C7; /* Border color */
-  --accent-color: #D8A878; /* Notification badge */
-}
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Hide scrollbar for IE & Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}

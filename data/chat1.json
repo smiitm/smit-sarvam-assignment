@@ -1,0 +1,52 @@
+{
+    "chats": [
+      {
+        "id": 1,
+        "messages": [
+          {
+            "type": "user",
+            "text": "What must be included in a legal demand notice under Section 138?"
+          },
+          {
+            "type": "bot",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Under Section 138 of the Negotiable Instruments Act, 1881, the following elements must be included in a legal demand notice:"
+              },
+              {
+                "type": "heading",
+                "text": "1. Filing a criminal complaint"
+              },
+              {
+                "type": "list",
+                "items": [
+                  "The payee can initiate criminal proceedings by filing a complaint against the drawer of the dishonored cheque due to insfficient funds or exceeding the arrangement.",
+                  "The payee must send a legal demand notice to the drawer within 30 days of the reciving the cheque return memo from the bank.",
+                  "The drawer has 15 days from the receipt of the notice to make the payment.",
+                  "The court may impose imprisonment up to two years or a fine up to twice the amount of the cheque, or both, if the drawer fails to make the payment within the stipulated time."
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "For more information, refer to the following documents:"
+              },
+              {
+                "type": "references",
+                "sources": [
+                  {
+                    "name": "Securities and Exchange Board of India.pdf",
+                    "url": "path/to/file"
+                  },
+                  {
+                    "name": "Bank Regulation 2024-2025.pdf",
+                    "url": "path/to/another/file"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

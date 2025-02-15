@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
 import { Rainbow, PlusIcon, PanelRightClose, PanelRightOpen, SquareUserRound, SettingsIcon, BellIcon } from 'lucide-react';
 
 export function Sidebar() {
@@ -35,9 +34,18 @@ export function Sidebar() {
 
   return (
     <>
+      {/* Backdrop */}
+      {!collapsed && (
+        <div
+          className="fixed inset-0 bg-black/50 transition-all lg:hidden z-40"
+          onClick={() => setCollapsed(true)}
+        />
+      )}
+
+      {/* Sidebar */}
       <div
         className={cn(
-          'h-screen bg-color2 transition-all duration-300 flex flex-col',
+          'h-screen bg-color2 transition-all duration-300 flex flex-col fixed lg:relative z-50',
           collapsed ? 'w-[60px]' : 'w-[240px]'
         )}
       >
@@ -70,10 +78,10 @@ export function Sidebar() {
 
 
         {!collapsed &&
-          <div className="mx-4 mb-4 bg-color3 flex items-center border-2 border-color4 py-2 rounded-md px-4  justify-between">
+          <button className="mx-4 mb-4 bg-color3 flex items-center border-2 hover:bg-color2 border-color4 py-2 rounded-md px-4  justify-between">
             Add new Thread
             <PlusIcon strokeWidth={1.5} className="h-6 w-6" />
-          </div>}
+          </button>}
 
         {collapsed && <div className="mx-2 mb-4">
           <button
@@ -88,7 +96,7 @@ export function Sidebar() {
             <div key={index} className="m-2">
               {!collapsed && <div className="font-semibold text-sm mb-1">{section.date}</div>}
               {section.items.map((thread) => (
-                <button key={thread.id} className="w-full hover:bg-color3 px-2 py-1.5 text-left rounded-md">
+                <button key={thread.id} className="w-full hover:bg-color3 px-2 py-1.5 text-left rounded-md text-color6">
                   {!collapsed && <div>{thread.title}</div>}
                 </button>
               ))}
@@ -99,17 +107,16 @@ export function Sidebar() {
 
         <div className="mt-auto space-y-2 mb-4 mx-2 ">
           {bottomItems.map((item, index) => (
-              <button
-                key={index}
-                className="p-2 rounded-md hover:bg-color3 w-full"
-                onClick={() => setCollapsed(!collapsed)}
-              >
-                <div className='flex space-x-2 items-center'>
-                  <item.icon size={24} strokeWidth={1.5} />
-                  {!collapsed && <span>{item.label}</span>}
-                </div>
-              </button>
-            
+            <button
+              key={index}
+              className="p-2 rounded-md hover:bg-color3 w-full text-color6"
+            >
+              <div className='flex space-x-2 items-center'>
+                <item.icon size={24} strokeWidth={1.5} />
+                {!collapsed && <span>{item.label}</span>}
+              </div>
+            </button>
+
           ))}
         </div>
       </div>

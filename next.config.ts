@@ -1,7 +1,21 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+interface WebpackConfig {
+  resolve: {
+    alias: {
+      canvas: boolean;
+    };
+  };
+}
+
+interface NextConfig {
+  webpack: (config: WebpackConfig) => WebpackConfig;
+}
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  webpack: (config) => {
+    config.resolve.alias.canvas = false;
+    return config;
+  }
+}
 
-export default nextConfig;
+module.exports = nextConfig

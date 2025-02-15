@@ -1,5 +1,7 @@
-import { ChatInput } from '@/components/chat-input';
-import { HomeCard } from '@/components/home-card';
+"use client" ;
+
+import { ChatInput } from '@/components/ChatInput';
+import { HomeCard } from '@/components/HomeCard';
 
 export default function Home() {
   return (
@@ -8,7 +10,7 @@ export default function Home() {
         <h1 className="text-4xl font-medium text-center mb-8">
           Start a legel conversation.
         </h1>
-        <ChatInput />
+        <ChatInput onSendMessage={(message) => console.log(message)} />
         <div className="mt-8 grid grid-cols-3 gap-4">
           <HomeCard
             imageUrl="https://images.unsplash.com/photo-1481487196290-c152efe083f5?auto=format&fit=crop&q=80&w=100&h=100"
@@ -29,3 +31,28 @@ export default function Home() {
     </div>
   );
 }
+
+
+// import dynamic from 'next/dynamic';
+
+// const PDFViewer = dynamic(() => import('@/components/PDFViewer'), {
+//   ssr: false,
+//   loading: () => (
+//     <div className="flex justify-center items-center h-screen">
+//       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+//     </div>
+//   ),
+// });
+
+// export default function Home() {
+//   return (
+//     <div className="w-full h-screen">
+//       <PDFViewer 
+//         url="/sample1.pdf"
+//         title="Document.pdf"
+//         onClose={() => console.log('Close clicked')}
+//         onDownload={() => console.log('Download clicked')}
+//       />
+//     </div>
+//   );
+// }
