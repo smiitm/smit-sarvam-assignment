@@ -24,12 +24,11 @@ export function ChatInput({ onSendMessage }: ChatInputProps) {
   };
 
   return (
-    <div className="flex items-center justify-center bg-transparent">
-      <div className="w-full h-24 max-w-3xl bg-color2 rounded-lg flex flex-col items-start justify-between border-2 border-color4 px-4 py-3">
+    <div className="w-full h-18 md:h-24 max-w-3xl bg-color2 rounded-lg flex flex-col items-start justify-between border-2 border-color4 px-4 py-3 mx-auto">
         <input
           type="text"
           placeholder="Ask anything..."
-          className="block bg-transparent text-lg text-color6 placeholder-color7 outline-none"
+          className="block bg-transparent text-sm md:text-base lg:text-lg text-color6 placeholder-color7 outline-none"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyPress={handleKeyPress}
@@ -44,6 +43,5 @@ export function ChatInput({ onSendMessage }: ChatInputProps) {
           </button>
         </div>
       </div>
-    </div>
   );
 }

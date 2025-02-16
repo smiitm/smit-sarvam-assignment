@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import MessageContent from "./MessageContent";
 import { ChatInput } from "./ChatInput";
-import rawChatData from "@/data/chat2.json";
 import PDFViewer from "./PDFViewer";
 
 interface Block {
@@ -25,36 +24,26 @@ interface BotMessage {
 
 type Message = UserMessage | BotMessage;
 
-interface ChatData {
-  chats: {
-    messages: Message[];
-  }[];
+interface ChatContainerProps {
+  initialMessages: Message[];
 }
 
-const chatData = rawChatData as ChatData;
-
-export function ChatContainer() {
-  const [messages, setMessages] = useState<Message[]>(
-    chatData.chats[0].messages
-  );
+export function ChatContainer({ initialMessages }: ChatContainerProps) {
+  const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [showPDF, setShowPDF] = useState(false);
 
-  // Ref to track the last message
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll when messages update
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Function to handle sending messages
   const handleSendMessage = (text: string) => {
     if (!text.trim()) return;
 
     const userMessage: UserMessage = { type: "user", text };
     setMessages((prev) => [...prev, userMessage]);
 
-    // Simulate bot response
     const botResponse: BotMessage = {
       type: "bot",
       content: [
@@ -66,19 +55,17 @@ export function ChatContainer() {
   };
 
   return (
-    <div className="flex h-full items-center justify-center">
-      {/* Chat part */}
-      <div className={`flex flex-col h-full max-h-screen ${showPDF ? "w-1/2" : "w-3/5"} bg-color1 pt-6 pb-2 mx-10 transition-all duration-300 relative`}>
-        {/* Gradient effect at the top */}
+    <div className="flex items-center justify-center text-xs md:text-sm lg:text-base w-full px-4 lg:px-2 ">
+      <div className={`flex flex-col max-h-screen ${showPDF ? "md:w-1/2" : "md:w-3/5"} w-full bg-color1 pt-6 pb-2  transition-all duration-300 relative items-center justify-between mx-8`}>
         <div className="absolute top-0 left-0 w-full h-10 bg-gradient-to-b from-color1 to-transparent z-10 pointer-events-none" />
-        <div className="flex-1 overflow-y-auto space-y-4 max-w-3xl scrollbar-hide relative py-2">
+        <div className="flex-1 overflow-y-auto space-y-4 max-w-3xl relative py-2 w-full scrollbar-hide">
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`rounded-lg p-4 max-w-fit text-color5 ${message.type === "user" ? "ml-auto bg-color3" : "mr-auto"}`}
+              className={`rounded-lg max-w-fit text-color5 ${message.type === "user" ? "ml-auto bg-color3" : "mr-auto"}`}
             >
               {message.type === "user" ? (
-                <div>{message.text}</div>
+                <div className="px-4 py-2">{message.text}</div>
               ) : (
                 <>
                   <button
@@ -95,12 +82,11 @@ export function ChatContainer() {
           <div ref={messagesEndRef} />
         </div>
 
-        <div className="bg-transparent mt-auto">
+        <div className="bg-transparent mt-auto w-full">
           <ChatInput onSendMessage={handleSendMessage} />
         </div>
       </div>
 
-      {/* PDF Viewer */}
       {showPDF && (
         <div className="w-1/2 h-full mr-2">
           <PDFViewer

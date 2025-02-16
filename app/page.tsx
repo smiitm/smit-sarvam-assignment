@@ -31,28 +31,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-// import dynamic from 'next/dynamic';
-
-// const PDFViewer = dynamic(() => import('@/components/PDFViewer'), {
-//   ssr: false,
-//   loading: () => (
-//     <div className="flex justify-center items-center h-screen">
-//       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
-//     </div>
-//   ),
-// });
-
-// export default function Home() {
-//   return (
-//     <div className="w-full h-screen">
-//       <PDFViewer 
-//         url="/sample1.pdf"
-//         title="Document.pdf"
-//         onClose={() => console.log('Close clicked')}
-//         onDownload={() => console.log('Download clicked')}
-//       />
-//     </div>
-//   );
-// }

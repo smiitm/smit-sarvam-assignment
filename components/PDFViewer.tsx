@@ -23,7 +23,7 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ url, title = "Document.pdf", onCl
       {/* Top toolbar */}
       <div className="flex items-center justify-between px-4 py-2 border-b bg-color1">
         <div className="flex items-center gap-4">
-          <button className="hover:bg-gray-100 p-2 rounded-full">
+          <button className="hover:bg-color3 p-2 rounded-full">
             <ChevronLeft className="w-5 h-5" />
           </button>
           <span className="text-sm text-gray-700">{title}</span>
@@ -31,16 +31,16 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ url, title = "Document.pdf", onCl
 
         <div className="flex items-center gap-2">
           <button
-            className="hover:bg-gray-100 p-2 rounded-full"
+            className="hover:bg-color3 p-2 rounded-full"
             onClick={onDownload}
           >
             <Download className="w-5 h-5" />
           </button>
-          <button className="hover:bg-gray-100 p-2 rounded-full">
+          <button className="hover:bg-color3 p-2 rounded-full">
             <Search className="w-5 h-5" />
           </button>
           <button
-            className="hover:bg-gray-100 p-2 rounded-full"
+            className="hover:bg-color3 p-2 rounded-full"
             onClick={onClose}
           >
             <X className="w-5 h-5" />
@@ -49,7 +49,7 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ url, title = "Document.pdf", onCl
       </div>
 
       {/* PDF Viewer */}
-      <div className="flex-1 flex flex-col bg-gray-100 overflow-hidden">
+      <div className="flex-1 flex flex-col bg-color3 overflow-hidden">
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
           <div className="w-full h-[calc(100vh-80px)] overflow-auto flex justify-center">
             <Viewer
