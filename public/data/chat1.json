@@ -1,52 +1,85 @@
 {
-    "chats": [
-      {
-        "id": 1,
-        "messages": [
-          {
-            "type": "user",
-            "text": "What must be included in a legal demand notice under Section 138?"
-          },
-          {
-            "type": "bot",
-            "content": [
-              {
-                "type": "paragraph",
-                "text": "Under Section 138 of the Negotiable Instruments Act, 1881, the following elements must be included in a legal demand notice:"
-              },
-              {
-                "type": "heading",
-                "text": "1. Filing a criminal complaint"
-              },
-              {
-                "type": "list",
-                "items": [
-                  "The payee can initiate criminal proceedings by filing a complaint against the drawer of the dishonored cheque due to insfficient funds or exceeding the arrangement.",
-                  "The payee must send a legal demand notice to the drawer within 30 days of the reciving the cheque return memo from the bank.",
-                  "The drawer has 15 days from the receipt of the notice to make the payment.",
-                  "The court may impose imprisonment up to two years or a fine up to twice the amount of the cheque, or both, if the drawer fails to make the payment within the stipulated time."
-                ]
-              },
-              {
-                "type": "paragraph",
-                "text": "For more information, refer to the following documents:"
-              },
-              {
-                "type": "references",
-                "sources": [
-                  {
-                    "name": "Securities and Exchange Board of India.pdf",
-                    "url": "path/to/file"
-                  },
-                  {
-                    "name": "Bank Regulation 2024-2025.pdf",
-                    "url": "path/to/another/file"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+  "id": 2,
+  "messages": [
+    {
+      "type": "user",
+      "text": "What must be included in a legal demand notice under Section 138?"
+    },
+    {
+      "type": "bot",
+      "content": [
+        {
+          "type": "references",
+          "sources": [
+            {
+              "name": "Securities and Exchange Board of India.pdf",
+              "url": "/sample1.pdf"
+            },
+            {
+              "name": "Bank Regulation 2024-2025.pdf",
+              "url": "/sample2.pdf"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Under Section 138 of the Negotiable Instruments Act, 1881, the following elements must be included in a legal demand notice:"
+        },
+        {
+          "type": "heading",
+          "text": "1. Filing a criminal complaint"
+        },
+        {
+          "type": "list",
+          "items": [
+            
+            {
+              "text": "The payee can initiate criminal proceedings by filing a complaint against the drawer of the dishonored cheque due to insfficient funds or exceeding the arrangement.",
+              "reference": "Section 138(b)"
+            },
+            "The payee must send a legal demand notice to the drawer within 30 days of the reciving the cheque return memo from the bank.",
+            "The drawer has 15 days from the receipt of the notice to make the payment.",
+            {
+              "text": "The court may impose imprisonment up to two years or a fine up to twice the amount of the cheque, or both, if the drawer fails to make the payment within the stipulated time.",
+              "reference": "Section 138"
+            }
+            
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "2. Random text"
+        },
+        {
+          "type": "paragraph",
+          "text": "Often the biggest challenge when working with a framework is figuring out what you’re supposed to do when there’s something you need that the framework doesn’t handle for you."
+        },
+        {
+          "type": "paragraph",
+          "text": "Tailwind has been designed from the ground up to be extensible and customizable, so that no matter what you’re building you never feel like you’re fighting the framework."
+        },
+        {
+          "type": "paragraph",
+          "text": "Tailwind has been designed from the ground up to be extensible and customizable, so that no matter what you’re building you never feel like you’re fighting the framework."
+        },
+        {
+          "type": "paragraph",
+          "text": "For more information, refer to the following documents:"
+        }
+        
+      ]
+    },
+    {
+      "type": "user",
+      "text": "What must be included in a legal demand notice under Section 138?"
+    },
+    {
+      "type": "user",
+      "text": "What are the essentail elements that mush be included in a legal demand notice under Section 138 of negotiable instruments act?"
+    },
+    {
+      "type": "user",
+      "text": "What happens if the drawer ignores the notice?"
+    }
+  ]
+}

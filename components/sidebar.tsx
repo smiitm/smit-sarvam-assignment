@@ -38,7 +38,7 @@ export function Sidebar() {
       {/* Backdrop */}
       {!collapsed && (
         <div
-          className="fixed inset-0 bg-black/50 transition-all lg:hidden z-40"
+          className="fixed inset-0 bg-black/50 transition-all md:hidden z-40"
           onClick={() => setCollapsed(true)}
         />
       )}
@@ -46,7 +46,7 @@ export function Sidebar() {
       {/* Sidebar */}
       <div
         className={cn(
-          'h-full bg-color2 transition-all duration-300 flex flex-col fixed lg:relative z-50',
+          'h-full bg-color2 transition-all duration-300 flex flex-col fixed md:relative z-50',
           collapsed ? 'w-[60px]' : 'w-[240px]'
         )}
       >

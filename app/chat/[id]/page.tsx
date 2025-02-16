@@ -24,9 +24,8 @@ interface BotMessage {
 type Message = UserMessage | BotMessage;
 
 interface ChatData {
-  chats: {
+    id: number;
     messages: Message[];
-  }[];
 }
 
 export default function ChatPage() {
@@ -60,5 +59,5 @@ export default function ChatPage() {
   if (loading) return <div className="text-center p-4">Loading...</div>;
   if (!chatData) return <div className="text-center p-4">Chat not found!</div>;
 
-  return <ChatContainer initialMessages={chatData.chats[0].messages} />;
+  return <ChatContainer initialMessages={chatData.messages} />;
 }
