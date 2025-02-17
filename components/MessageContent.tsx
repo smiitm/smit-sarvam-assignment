@@ -94,7 +94,8 @@ function MessageContent({ content, onSourceClick, activePdfUrl }: MessageContent
           }
         })}
       {/* Action Buttons */}
-      <div className="flex items-center gap-2 mt-6 text-xs text-color6 md:text-base">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-2 mt-6 text-xs text-color6 md:text-base">
+        <div className="flex items-center gap-2 ml-auto md:ml-0">
         <div className="bg-color3 rounded-md py-1 px-2">
           <button className="flex items-center gap-1 text-color7 hover:text-color5">
             <Search className="w-4 h-4" /> Ask Sources
@@ -104,6 +105,7 @@ function MessageContent({ content, onSourceClick, activePdfUrl }: MessageContent
           <button className="flex items-center gap-1 text-color7 hover:text-color5">
             <Eye className="w-4 h-4" /> Visualise
           </button>
+        </div>
         </div>
 
         <div className="flex items-center gap-2 ml-auto">

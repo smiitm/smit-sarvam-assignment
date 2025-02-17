@@ -94,7 +94,7 @@ export function ChatContainer({ initialMessages }: ChatContainerProps) {
   return (
     <div className="flex items-center justify-center text-xs md:text-sm lg:text-base w-full px-4 lg:px-2">
       <div className="flex flex-col max-h-screen md:w-3/5 w-full bg-color1 pt-6 pb-2 transition-all duration-300 relative items-center justify-between mx-8">
-        <div className="absolute top-0 left-0 w-full h-10 bg-gradient-to-b from-color1 to-transparent z-10 pointer-events-none" />
+        <div className="hidden lg:block absolute top-0 left-0 w-full h-10 bg-gradient-to-b from-color1 to-transparent z-10 pointer-events-none" />
         <div className="flex-1 overflow-y-auto space-y-2 max-w-3xl relative py-2 w-full scrollbar-hide">
           {messages.map((message, index) => (
             <div
