@@ -79,7 +79,10 @@ export function Sidebar() {
         )}
 
         {!collapsed && (
-          <button className="mx-4 mb-4 bg-color3 flex items-center border-2 hover:bg-color2 border-color4 py-2 rounded-md px-4 justify-between">
+          <button 
+            className="mx-4 mb-4 bg-color3 flex items-center border-2 hover:bg-color2 border-color4 py-2 rounded-md px-4 justify-between"
+            onClick={() => router.push(`/chat/`)}
+          >
             Add new Thread
             <PlusIcon strokeWidth={1.5} className="h-6 w-6" />
           </button>

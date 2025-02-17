@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Worker, Viewer, SpecialZoomLevel } from '@react-pdf-viewer/core';
 import { ProgressBar } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css';
-import { X, Download, Search, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react';
+import { X, Download, Search, ChevronLeft } from 'lucide-react';
 
 interface PDFViewerProps {
   url: string;

@@ -31,7 +31,6 @@ interface ChatContainerProps {
 export function ChatContainer({ initialMessages }: ChatContainerProps) {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
 
-  // Instead of showPDF, we track a selected PDF URL
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -48,14 +47,12 @@ export function ChatContainer({ initialMessages }: ChatContainerProps) {
     const botResponse: BotMessage = {
       type: "bot",
       content: [
-        { type: "paragraph", text: "Thank you for your question!" },
-        { type: "paragraph", text: "Here is a sample response." },
+        { type: "paragraph", text: "Thank you for your question!, Here is a sample response." },
       ],
     };
     setMessages((prev) => [...prev, botResponse]);
   };
 
-  // Opens PDF specified by the source URL
   const handleSourceClick = (url: string) => {
     setPdfUrl(url);
   };
@@ -75,7 +72,6 @@ export function ChatContainer({ initialMessages }: ChatContainerProps) {
               {message.type === "user" ? (
                 <div className="px-4 py-2">{message.text}</div>
               ) : (
-                // Pass handleSourceClick + activePdfUrl
                 <MessageContent
                   content={message.content}
                   onSourceClick={handleSourceClick}
@@ -92,7 +88,6 @@ export function ChatContainer({ initialMessages }: ChatContainerProps) {
         </div>
       </div>
   
-      {/* Render PDFViewer if pdfUrl is set */}
       {pdfUrl && (
         <div className="w-1/2 h-full mr-2">
           <PDFViewer
