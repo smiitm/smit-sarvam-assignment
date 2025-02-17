@@ -14,9 +14,6 @@ interface PDFViewerProps {
 }
 
 const PDFViewer: React.FC<PDFViewerProps> = ({ url, title = "Document.pdf", onClose, onDownload }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  const [scale, setScale] = useState(1);
 
   return (
     <div className="w-full flex flex-col bg-color1 mt-4 mb-2 border-2 border-color4 rounded-lg">
@@ -55,8 +52,6 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ url, title = "Document.pdf", onCl
             <Viewer
               fileUrl={url}
               defaultScale={SpecialZoomLevel.PageWidth}
-              onDocumentLoad={(e) => setTotalPages(e.doc.numPages)}
-              onPageChange={(e) => setCurrentPage(e.currentPage)}
               renderLoader={(percentages) => (
                 <div className="flex justify-center items-center h-full">
                   <div className="w-64">
