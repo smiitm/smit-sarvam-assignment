@@ -1,7 +1,9 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { Sidebar } from '@/components/sidebar';
+import { Sidebar } from '@/components/Sidebar';
+import { SidebarProvider } from '@/context/SidebarContext';
+import { MobileHeader } from '@/components/MobileHeader';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -22,14 +24,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <div className="flex bg-color2 text-color5 w-full h-full">
-          <div className="hidden md:block">
+        <SidebarProvider>
+          <div className="flex bg-color2 text-color5 w-full h-full">
             <Sidebar />
+            <main className="min-h-screen w-full md:flex-1 md:flex md:flex-col bg-color1">
+              <MobileHeader />
+              {children}
+            </main>
           </div>
-          <main className="min-h-screen w-full md:flex-1 md:flex md:flex-col bg-color1">
-            {children}
-          </main>
-        </div>
+        </SidebarProvider>
       </body>
     </html>
   );

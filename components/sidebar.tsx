@@ -1,13 +1,13 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Rainbow, PlusIcon, PanelRightClose, PanelRightOpen, SquareUserRound, SettingsIcon, BellIcon } from 'lucide-react';
+import { useSidebar } from '../context/SidebarContext';
 
 export function Sidebar() {
-  const [collapsed, setCollapsed] = useState(false);
-  const router = useRouter(); // Next.js router for navigation
+  const { collapsed, setCollapsed } = useSidebar();
+  const router = useRouter();
 
   const bottomItems = [
     { icon: BellIcon, label: 'Notifications' },
@@ -44,11 +44,12 @@ export function Sidebar() {
       )}
 
       {/* Sidebar */}
-      
       <div
         className={cn(
           'h-full bg-color2 transition-all duration-300 flex flex-col fixed md:relative z-50',
-          collapsed ? 'w-[60px]' : 'w-[240px]'
+          collapsed 
+            ? '-translate-x-full md:translate-x-0 w-[240px] md:w-[60px]' 
+            : 'translate-x-0 w-[240px]'
         )}
       >
 
@@ -56,7 +57,7 @@ export function Sidebar() {
           <div className="flex items-center justify-between p-4">
             <div className="flex items-center gap-2">
               <Rainbow strokeWidth={1.5} size={30} />
-              <div className="text-xl font-semibold">ChatGST</div>
+              <div className="text-lg md:text-xl  font-semibold">ChatGST</div>
             </div>
 
             <button
