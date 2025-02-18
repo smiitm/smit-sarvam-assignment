@@ -5,7 +5,7 @@ import { HomeCard } from '@/components/HomeCard';
 
 export default function Home() {
   return (
-    <div className="flex-1 flex flex-col items-center justify-center h-full">
+    <div className="flex-1 flex flex-col items-center justify-center h-screen">
       <div className="w-full max-w-3xl px-4 mb-32">
         <h1 className="text-4xl font-medium text-center mb-8">
           Start a legel conversation.

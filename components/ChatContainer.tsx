@@ -29,6 +29,7 @@ type Message = UserMessage | BotMessage;
 
 interface ChatContainerProps {
   initialMessages: Message[];
+  title: string;
 }
 
 export function ChatContainer({ initialMessages }: ChatContainerProps) {

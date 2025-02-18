@@ -24,27 +24,27 @@ interface BotMessage {
 type Message = UserMessage | BotMessage;
 
 interface ChatData {
-    id: number;
-    messages: Message[];
+  id: number;
+  title: string;
+  messages: Message[];
 }
 
 export default function ChatPage() {
-  const params = useParams(); 
+  const params = useParams();
   const router = useRouter();
   const [chatData, setChatData] = useState<ChatData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchChatData() {
-      if (!params?.id) return; 
-
+      if (!params?.id) return;
       try {
         const res = await fetch(`/data/${params.id}.json`);
         if (!res.ok) {
           router.push("/404");
           return;
         }
-        const data = await res.json();
+        const data: ChatData = await res.json();
         setChatData(data);
       } catch (error) {
         console.error("Error fetching chat data:", error);
@@ -52,12 +52,11 @@ export default function ChatPage() {
         setLoading(false);
       }
     }
-
     fetchChatData();
   }, [params?.id, router]);
 
   if (loading) return <div className="text-center p-4">Loading...</div>;
   if (!chatData) return <div className="text-center p-4">Chat not found!</div>;
 
-  return <ChatContainer initialMessages={chatData.messages} />;
+  return <ChatContainer initialMessages={chatData.messages} title={chatData.title} />;
 }

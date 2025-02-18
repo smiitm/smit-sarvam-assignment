@@ -1,5 +1,6 @@
 {
-  "id": 1,
+  "id": 2,
+  "title": "Legal Demand Notice Details",
   "messages": [
     {
       "type": "user",
@@ -13,11 +14,11 @@
           "sources": [
             {
               "name": "Securities and Exchange Board of India.pdf",
-              "url": "path/to/file"
+              "url": "/sample1.pdf"
             },
             {
               "name": "Bank Regulation 2024-2025.pdf",
-              "url": "path/to/another/file"
+              "url": "/sample2.pdf"
             }
           ]
         },

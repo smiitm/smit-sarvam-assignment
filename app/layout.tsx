@@ -23,11 +23,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+      <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+      <link rel="icon" href="/sarvam.png" type="image/png" />
+      </head>
       <body className={inter.className}>
         <SidebarProvider>
           <div className="flex bg-color2 text-color5 w-full h-full">
             <Sidebar />
-            <main className="min-h-screen w-full md:flex-1 md:flex md:flex-col bg-color1">
+            <main className="min-h-screen w-full md:flex-1 md:flex md:flex-col bg-color1 overflow-hidden">
               <MobileHeader />
               {children}
             </main>

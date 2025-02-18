@@ -1,5 +1,6 @@
 {
-  "id": 2,
+  "id": 1,
+  "title": "Legal Chat",
   "messages": [
     {
       "type": "user",

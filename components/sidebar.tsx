@@ -46,7 +46,7 @@ export function Sidebar() {
       {/* Sidebar */}
       <div
         className={cn(
-          'h-full bg-color2 transition-all duration-300 flex flex-col fixed md:relative z-50',
+          'h-screen bg-color2 transition-all duration-300 flex flex-col fixed md:relative z-50',
           collapsed 
             ? '-translate-x-full md:translate-x-0 w-[240px] md:w-[60px]' 
             : 'translate-x-0 w-[240px]'
